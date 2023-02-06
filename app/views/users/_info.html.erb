@@ -16,7 +16,16 @@
     <th>followers</th>
     <th><%= link_to user.followers.count, user_followers_path(user) %></th>
   </tr>
+  <tr>
+   
+  </tr>
 </table>
+<div>
+    <% if current_user != user && current_user.following?(user) && user.following?(current_user) %>
+    <%= link_to 'chatを始める', chat_path(user.id), class: "ml-3" %>
+    <% end %>
+</div>
+    
 　
 <div class='row'>
   <% if current_user != user %>
