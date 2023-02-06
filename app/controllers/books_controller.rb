@@ -18,10 +18,7 @@ class BooksController < ApplicationController
     @book = Book.new
     @books = Book.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
     
-     @book_detail = Book.find_by(params[:book_id])
-    unless ViewCount.find_by(user_id: current_user.id, book_id: @book_detail.id)
-      current_user.view_counts.create(book_id: @book_detail.id)
-    end
+     
   end
 
   def create
