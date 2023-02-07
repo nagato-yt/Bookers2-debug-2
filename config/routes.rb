@@ -23,7 +23,10 @@ end
   	get 'followers' => 'relationships#followers', as: 'followers'
   end
   
-  resources :groups, except: [:destroy]
+  resources :groups do
+    get "join" => "groups#join"
+  end 
+    
   resources :chats, only: [:show, :create]
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
