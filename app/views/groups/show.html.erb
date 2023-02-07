@@ -38,7 +38,9 @@
           </td>
         </tr>
       </table>
-      <%= link_to 'Mail',group_new_mail_path(@group), class: "btn btn-sm btn-success"  %>
+      <% if @group.owner_id == current_user.id %>
+      <%= link_to 'Notice an Event',group_new_mail_path(@group), class: "btn btn-sm btn-success"  %>
+      <% end %>
     </div>
   </div>
 </div>
